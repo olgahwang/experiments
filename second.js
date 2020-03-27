@@ -12,7 +12,7 @@ let tx, ty, mv=1;
 let noiseProg = (x) => (x);
 
 function setup() {
-  let cnv = createCanvas(displayWidth, displayHeight);
+  let cnv = createCanvas(displayWidth, displayHeight*0.87);
   cnv.parent("secondExperiment");
   colorMode(HSB, 1);
 	angleMode(DEGREES);
@@ -26,7 +26,7 @@ function setup() {
 }
 
 function draw() {
-  background(1, 0.8, 0.9);
+  background(1, 0.9, 0.9);
   let t = frameCount/100;
   if (sk > 1 && frameCount%2 == 0){
     sk--;
@@ -34,10 +34,16 @@ function draw() {
   if (xx != mouseX){
     mv = abs(xx - mouseX)/50;
     if (xx > mouseX){
-      if (abs(xx-mouseX) > 40){xx-=3;}
+      if (abs(xx-mouseX) > 40){
+        xx-=3;
+        sk=abs(xx-mouseX)/100;
+      }
       if (maxNoise > 500){maxNoise=abs(xx - mouseX)*2;}
     } else {
-      if (abs(xx-mouseX) > 40){xx+=3;}
+      if (abs(xx-mouseX) > 40){
+        xx+=3;
+        sk=abs(xx-mouseX)/100;
+      }
       if (maxNoise > 500){maxNoise=abs(xx - mouseX)*2;}
     }
   }
@@ -46,9 +52,15 @@ function draw() {
     mv = abs(yy - mouseY)/50;
     if (yy > mouseY){
       if (maxNoise > 500){maxNoise=abs(yy - mousey)*2;}
-      if (abs(yy-mouseY) > 40){yy-=3;}
+      if (abs(yy-mouseY) > 40){
+        yy-=3;
+        sk=abs(yy-mouseY)/100;
+      }
     } else {
-      if (abs(yy-mouseY) > 40){yy+=3;}
+      if (abs(yy-mouseY) > 40){
+        yy+=3;
+        sk=abs(yy-mouseY)/100;
+      }
       if (maxNoise > 500){maxNoise=abs(yy - mousey)*2;}
     }
   }
@@ -77,8 +89,4 @@ function blob(size, xCenter, yCenter, k, t, noisiness) {
     curveVertex(x, y);
   }
   endShape();
-}
-
-function mouseClicked(){
-  sk = 60;
 }

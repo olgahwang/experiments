@@ -1,5 +1,77 @@
+@font-face {
+  font-family: "Antonym-Regular";
+  src: url("./Antonym-Regular.ttf");
+}
+
+#myCanvas{
+  position: absolute;
+  top: 100px;
+  left: 400px;
+}
+
 #secondExperiment{
   position: absolute;
-  left: 0px;
-  top: 0px;
+  top: 50px;
+  left: 0;
+  bottom: 5px;
+}
+
+
+.back {
+  font-family: "Antonym-Regular";
+  font-size: 32px;
+  position: absolute;
+  left: 30;
+  top: 30;
+}
+
+button {
+  border: 0 !important;
+  outline:none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: 0;
+}
+
+button:onclick {
+  border: 0 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+h1 {
+  font-family: "Antonym-Regular";
+  font-size: 100px;
+  position: relative;
+  margin-top: 100px;
+  margin-left: 50px;
+  color: #FFFFFF;
+}
+
+h2 {
+  font-family: "Antonym-Regular";
+  font-size: 56px;
+  position: relative;
+  margin-top: 100px;
+  margin-left: 50px;
+  color: #A3FF09;
+}
+
+a:link {
+  color: #A3FF09;
+}
+
+/* visited link */
+a:visited {
+  color: #A3FF09;
+}
+
+/* mouse over link */
+a:hover {
+  opacity: 0.8;
+}
+
+/* selected link */
+a:active {
+  color: #A3FF09;
 }
