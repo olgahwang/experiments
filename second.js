@@ -12,7 +12,7 @@ let tx, ty, mv=1;
 let noiseProg = (x) => (x);
 
 function setup() {
-  let cnv = createCanvas(displayWidth, displayHeight*0.87);
+  let cnv = createCanvas(innerWidth, innerHeight*0.87);
   cnv.parent("secondExperiment");
   colorMode(HSB, 1);
 	angleMode(DEGREES);
