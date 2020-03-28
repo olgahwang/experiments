@@ -1,13 +1,7 @@
 @font-face {
   font-family: "Brown";
-  src: url("../fonts/Brown-Regular-Alt.otf");
+  src: url("./Brown-Regular-Alt.otf");
 }
-
-@font-face {
-  font-family: "Antonym-Regular";
-  src: url("../fonts/Antonym-Regular.ttf");
-}
-
 
 body {
   background: #000000;

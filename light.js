@@ -70,7 +70,7 @@ let typeSketch = function(s) {
   let sdgreg;
 
   s.preload = function() {
-    font = s.loadFont("../fonts/Brown-Regular-Alt.otf");
+    font = s.loadFont("./Brown-Regular-Alt.otf");
   }
 
   s.setup = function() {
