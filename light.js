@@ -199,3 +199,110 @@ let circleInteraction = function(p) {
 }
 
 new p5(circleInteraction, window.document.getElementById('interactiveCircle'));
+
+let particlesSketch = function(p){
+    /*
+  Magical trail shader 2
+
+  Inspired by takawo's sketch:
+  	https://www.openprocessing.org/sketch/853212
+
+  Author:
+    Jason Labbe
+
+  Site:
+    jasonlabbe3d.com
+
+  Controls:
+  	- Move the mouse to create particles.
+  	- Hold the middle mouse button to fade away particles.
+  */
+
+  const MAX_TRAIL_COUNT = 30;
+
+  var colorScheme = ["#0A1B28", "#071F43", "#357D7E", "#35EEEE", "#919DF0"];
+  var trail = [];
+  var particles = [];
+
+  p.setup = function() {
+    let canvas = p.createCanvas(p.windowWidth, p.windowHeight);
+  	canvas.canvas.oncontextmenu = () => false;  // Removes right-click menu.
+    canvas.parent("prtcls");
+  	p.noCursor();
+  }
+
+  p.draw = function() {
+  	p.blendMode(p.BLEND);
+  	p.background(0);
+  	p.blendMode(p.SCREEN);
+
+  	// Trim end of trail.
+  	trail.push([p.mouseX, p.mouseY]);
+
+  	let removeCount = 1;
+  	if (p.mouseIsPressed && p.mouseButton == p.CENTER) {
+  		removeCount++;
+  	}
+
+  	for (let i = 0; i < removeCount; i++) {
+  		if (trail.length == 0) {
+  			break;
+  		}
+
+  		if (p.mouseIsPressed || trail.length > MAX_TRAIL_COUNT) {
+  			trail.splice(0, 1);
+  		}
+  	}
+
+  	// Spawn particles.
+  	if (trail.length > 1) {
+  		let mouse = new p5.Vector(p.mouseX, p.mouseY);
+  		mouse.sub(p.mouseX, p.mouseY);
+  		if (mouse.mag() > 5) {
+  			mouse.normalize();
+  			for (let i = 0; i < 3; i++) {
+  				particles.push(new Particle(p.mouseX, p.mouseY, mouse.x, mouse.y));
+  			}
+  		}
+  	}
+
+  	// Move and kill particles.
+  	for (let i = particles.length - 1; i > -1; i--) {
+  		particles[i].move();
+  		if (particles[i].vel.mag() < 0.1) {
+  			particles.splice(i, 1);
+  		}
+  	}
+
+  	// Draw trail.
+  	p.drawingContext.shadowColor = p.color(0, 125, 255);
+
+  	for (let i = 0; i < trail.length; i++) {
+  		let mass = i * 1.5;
+  		p.drawingContext.shadowBlur = mass;
+
+  		p.stroke(0);
+  		p.strokeWeight(mass);
+  		p.point(trail[i][0], trail[i][1]);
+  	}
+
+  	// Draw particles.
+  	for (let i = 0; i < particles.length; i++) {
+  		let p = particles[i];
+  		let mass = p.mass * p.vel.mag() * 0.6;
+
+  		p.drawingContext.shadowColor = color(colorScheme[p.colorIndex]);
+  		p.drawingContext.shadowBlur = mass;
+
+  		p.stroke(0);
+  		p.strokeWeight(mass);
+  		p.point(p.pos.x, p.pos.y);
+
+  		p.stroke(255);
+  		p.strokeWeight(mass * 0.05);
+  		p.point(p.pos.x, p.pos.y);
+  	}
+  }
+}
+
+new p5(particlesSketch, window.document.getElementById('prtcls'));
