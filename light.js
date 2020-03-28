@@ -10,7 +10,8 @@ let sketch = function(p){
   let noiseProg = (x) => (x);
 
   p.setup = function() {
-    p.createCanvas(500, 500);
+    var cnv = p.createCanvas(500, 500);
+    cnv.parent("lightBlob");
     //colorMode(HSB, 1);
   	p.angleMode(p.DEGREES);
     p.noFill();
@@ -74,3 +75,5 @@ let sketch = function(p){
 }
 
 new p5(sketch, window.document.getElementById('lightBlob'));
+
+document.getElementById("lightBlob").style = "position: absolute; right: 40px; top: 400px; z-index: 1;";

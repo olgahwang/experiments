@@ -34,6 +34,12 @@ p {
   font-size: 18px;
 }
 
+#defaultcanvas0 {
+  position: absolute;
+  right: 20px;
+  top: 200px;
+}
+
 #intro {
   margin: 0px 10px 10px 0px;
 }
@@ -49,11 +55,9 @@ p {
 
 #lightBlob {
   position: absolute;
-  z-index: 0;
+  z-index: 1;
   right: 200px;
-  top: 500px;
-  width: 600px;
-  height: 600px;
+  top: 100px;
 }
 
 .wrapper-100 {
