@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!--<script src="./sanjee.js"></script>-->
     <script src="./lib/p5.js">
     <script src="./lib/p5.play.js"></script>
-    <script src="./lib/p5.sound.js"></script>
-    <script src="./lib/p5.dom.min.js"></script>
     <script src="./light.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="./scroll.js"></script>
     <link rel="stylesheet" type="text/css" href="./sanjee.css" />
+    <link rel="stylesheet" type="text/css" href="./animate.css" />
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"
@@ -15,19 +15,65 @@
   </head>
   <body>
     <div id="intro"></div>
-    <div class="wrapper-100">
+    <div class="wrapper">
       <div style="display: flex; width: 60%; margin-right: 50px;">
-        <h1>Happy birthday, <br>my sunshine.</h1>
+        <h1 style="z-index:1">Happy birthday, <br>my sunshine.</h1>
       </div>
       <div id="lightBlob"></div>
       <div style="display: flex; width: 30%; align-items: center; z-index: 1;">
         <p>Somewhere in the middle of Greate Steppe Sanjee was born.
           With the smell of grass, horses, milk and freedom.
-          Two bright dark eyes were staring at the world with wonder and kindnes,
-          the heart bit: knock-knock. Supernova Sanjee was born.
+          Two bright dark eyes were staring at the world full of wonder and kindness.
+          Hid little heart bit the rhythm: knock-knock. Supernova Sanjee was born.
         </p>
       </div>
-      <!--<img id="blobSupernova" src="../assets/blob1.png">-->
+    </div>
+    <div class="wrapper" id="retroPart">
+      <div style="z-index: 2;">
+        <h1 style="color: #535353; text-align: center;">When we are young</h1>
+      </div>
+      <img id ="childPhoto" src="../assets/child.jpg">
+      <div style="width: 30%;">
+        <p style="color: #535353;">All men have stars, but they are not the same things for
+          different people. For some, who are travelers, the stars
+          are guides. For others they are no more than little lights in the sky.
+          For others, who are scholars, they are problems... But all these stars
+          are silent. You-You alone will have stars as no one else has them.<br><br>
+          I wish you will never stop wondering and exploring your starts. Always
+          stay hungry, stay foolish.
+        </p>
+      </div>
+      <img id ="starSketch" src="../assets/star.png">
+    </div>
+    <div id="partChaos">
+      <h4 style="width: 35%; color: #535353; line-height: 120%">
+        We are full of fears: being imperfect, being not good enough, making something
+        wrong, being too chaotic. Don't afraid of it. Be brave, embrace chaos and let it
+        make something unique, real and fascinating.
+      </h4>
+      <div id="interactiveCircle"></div>
+    </div>
+    <h4 id="textFinal">
+      Just remember all the incredible things you did. Remember how you always
+      made something that seemed impossible, how you led people, made
+      them believe and create. Remember those magical moments, that create
+      piece by piece the life of Supernova Sanjee. <br><br>
+      I wish you to have life full of dreams, fruitful experiences, interesing
+      and different people. I wish you never stop growing, developing and creating.
+      Be self, listen to your heart and be brave to strive for all the dreams you have.
+    </h4>
+    <div id="finalPart">
+      <img id="photoOne" class="animated fadeInUp" src="../assets/one.jpg">
+      <img id="photoTwo" class="animated fadeInUp" src="../assets/sheberkhana.jpg">
+      <img id="photoThree" class="animated fadeInUp" src="../assets/coffee.jpg">
+    </div>
+    <div id="finalPart">
+      <img id="photoFour" class="animated fadeInUp" src="../assets/four.jpg">
+      <img id="photoSix" class="animated fadeInUp" src="../assets/six.jpeg">
+      <img id="photoFive" class="animated fadeInUp" src="../assets/five.jpeg">
+    </div>
+    <div style="height: 100vh">
+      <h1>sdfsdfdsfsd</h1>
     </div>
   </body>
 </html>
