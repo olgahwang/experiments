@@ -1,0 +1,73 @@
+@font-face {
+  font-family: "Brown";
+  src: url("../fonts/Brown-Regular-Alt.otf");
+}
+
+@font-face {
+  font-family: "Antonym-Regular";
+  src: url("../fonts/Antonym-Regular.ttf");
+}
+
+
+body {
+  background-color: #000000;
+}
+
+h1 {
+  font-size: 90px;
+  line-height: 110%;
+}
+
+h2 {
+  font-size: 64px;
+}
+
+h3 {
+  font-size: 56px;
+}
+
+h4 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+}
+
+#intro {
+  margin: 0px 10px 10px 0px;
+}
+
+#blobSupernova {
+  position: absolute;
+  z-index: 0;
+  right: 200px;
+  top: 500px;
+  width: 600px;
+  height: 600px;
+}
+
+#lightBlob {
+  position: absolute;
+  z-index: 0;
+  right: 200px;
+  top: 500px;
+  width: 600px;
+  height: 600px;
+}
+
+.wrapper-100 {
+  margin-left: 10px;
+  margin-right: 10px;
+
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-items: center;
+}
+
+* {
+  /* css rule that changes all the fonts on the page */
+  font-family: "Brown";
+  color: #FFFFFF;
+}
